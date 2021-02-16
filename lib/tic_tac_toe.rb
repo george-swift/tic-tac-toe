@@ -9,5 +9,5 @@ module TicTacToe
   # Your code goes here...
 
   cell_1 = Cell.new("1")
-  
+  puts cell_1.value
 end
