@@ -6,9 +6,9 @@
 
 puts "Player 1: Enter Your Name: !"
 
-player_1 = gets.chomp
+player1 = gets.chomp
 
 puts "Player 2: Enter Your Name: !"
-player_2 = gets.chomp
+player2 = gets.chomp
 
-puts "welcome: #{player_1} & #{player_2}. Ready to Battle?"
+puts "welcome: #{player1} & #{player2}. Ready to Battle?"
