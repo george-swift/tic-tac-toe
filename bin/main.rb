@@ -1,15 +1,15 @@
 # !/usr/bin/env ruby
 
 # require_relative '../lib/tic_tac_toe'
-# require_relative "../lib/player"
+require_relative "../lib/tic_tac_toe/player"
 
 # Use getters to collect input from players
 puts "Let's play tic-tac-toe!"
 puts 'Enter your name player one'
-name = 'P1' # gets.chomp
+name = gets.chomp
 player_one = name
 puts "Welcome #{player_one}, select either 'X' or 'O' as your marker"
-marker = 'X' # gets.chomp.upcase
+marker = gets.chomp.upcase
 
 # Validate input from the players
 def validate_marker(player_one, marker)
@@ -24,6 +24,7 @@ end
 puts validate_marker(player_one, marker)
 
 # Create Player 1 object
+player_1_Obj = Player.new(player_one, marker, Array.new(9, 0))
 
 def change_marker(marker)
   other_marker = %w[X O].reject { |ch| ch == marker }
@@ -31,11 +32,14 @@ def change_marker(marker)
 end
 
 puts 'Enter your name player two'
-name = 'P2' # gets.chomp
+name = gets.chomp
 player_two = name
-puts "Welcome #{player_two}, your marker is #{change_marker(marker)}"
 
 # Create Player 2 object
+player_2_Obj = Player.new(player_two, change_marker(marker), Array.new(9, 0))
+
+puts "Welcome #{player_2_Obj.name}, your marker is #{player_2_Obj.marker}"
+
 
 puts 'Remember: The player with a row, column or diagonal of the same marker wins'
 puts "Ready? Let's begin!"
@@ -58,20 +62,19 @@ end
 def accept_moves(player_one, player_two)
   cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   # count_unless_winning_combo = 1
-  # move = 0
+  move = 0
   moves_done = 1
   board(cells)
   while cells.any? { |n| n.is_a? Integer }
     puts 'Select a number from the GRID to make your move.'
+    puts "#{player_one.name}'s Turn : "
+    move_pos = position_available(gets.chomp.to_i-1, player_one, player_two)    
     # accept player 1 move
+    player_one.moves_arr[move_pos] = 1
+    p player_one.moves_arr
 
-    # if position_available?
-    puts "#{player_one}'s Turn : "
-    move = gets.chomp.to_i
-    # end
-
-    # reference player_object.marker
-    cells[move - 1] = 'X'
+    # reference player_object.marker for DISPLAY GRID
+    cells[move_pos] = player_one.marker
 
     board(cells)
 
@@ -80,12 +83,14 @@ def accept_moves(player_one, player_two)
       # accept player 2 move
 
       # if position_available?
-      puts "#{player_two}'s Turn : "
-      move = gets.chomp.to_i
-      # end
-
+      puts "#{player_two.name}'s Turn : "
+      move_pos = position_available(gets.chomp.to_i-1, player_one, player_two)          # end
+      
+      # accept player 2 move
+      player_two.moves_arr[move_pos] = 1
+      p player_two.moves_arr
       # reference player_object.marker
-      cells[move - 1] = 'O'
+      cells[move_pos] = player_two.marker
 
       board(cells)
     end
@@ -104,4 +109,19 @@ def board_is_full(cells)
   false
 end
 
-accept_moves(player_one, player_two)
+
+# checks moves array for Player 1 & 2
+# allow move position & returns true
+# checks against moves array of both players
+def position_available(move_pos, player_1_Obj, player_2_Obj)
+
+  unless ((player_1_Obj.moves_arr[move_pos] == 0) && (player_2_Obj.moves_arr[move_pos] == 0))
+      puts "Oops1 The cell is taken. Try Again."
+  end
+  
+    move_pos = gets.chomp.to_i-1
+
+  return move_pos
+end
+
+accept_moves(player_1_Obj, player_2_Obj)

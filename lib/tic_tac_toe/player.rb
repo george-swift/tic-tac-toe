@@ -1,10 +1,11 @@
-module TicTacToe
+# module TicTacToe
   class Player
-    attr_reader :name, :marker
+    attr_accessor :name, :marker, :moves_arr
 
-    def initialize(name, marker)
+    def initialize(name, marker, moves_arr)
       @name = name
       @marker = marker
+      @moves_arr = moves_arr
     end
   end
-end
+# end
