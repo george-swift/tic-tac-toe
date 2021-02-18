@@ -8,10 +8,10 @@ require_relative '../lib/tic_tac_toe/winner'
 # Use getters to collect input from players
 puts "Let's play tic-tac-toe!"
 puts 'Enter your name player one'
-name = gets.chomp
+name = 'player 1' # gets.chomp
 player_one = name
 puts "Welcome #{player_one}, select either 'X' or 'O' as your marker"
-marker = gets.chomp.upcase
+marker = 'X' # gets.chomp.upcase
 
 # Validate input from the players
 def validate_marker(player_one, marker)
@@ -36,7 +36,7 @@ def change_marker(marker)
 end
 
 puts 'Enter your name player two'
-name = gets.chomp
+name = 'player 2' # gets.chomp
 player_two = name
 
 # Create Player 2 object
@@ -61,14 +61,30 @@ def board(moved_cells = %w[1 2 3 4 5 6 7 8 9])
   GRID
 end
 
+# Define the board layout
+def game_banner
+  puts <<-GRID
+
+        #######             #######               #######              
+          #                   #                     #                 
+          #                   #                     #                 
+          #    ##   ####      #    ####   ####      #     ####   ###  
+          #     #  #   #      #       #  #   #      #    ##  ## #   # 
+          #     #  #          #    ####  #          #    #    # ##### 
+          #     #  ##         #    #  #  ##         #    ##  ## #     
+         ###   ###  ####     ###   #####  ####     ###    ####   ####
+    GRID
+end
+
 def accept_moves(player_one, player_two)
   cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   moves_done = 1
+  game_banner
   board(cells)
 
   check = FindWinner.new
   game_in_play = true
-
+  
   while cells.any? { |n| n.is_a? Integer } && game_in_play
 
     # Checks if other player made a winning move
