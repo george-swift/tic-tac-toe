@@ -12,6 +12,19 @@
         #     #  ##         #    #  #  ##         #    ##  ## #
        ###   ###  ####     ###   #####  ####     ###    ####   ####
 ```
+## DESCRIPTION & HOW TO START PLAYING
+
+- Start cmd on windows / terminal on mac or linux
+- Type `./main.rb` & hit enter/return
+- main.rb - entry point file is a command line executable
+- Enter Player 1 'Name' & Preferred Marker from `['X' or 'O']`
+- Enter Player 2 'Name' & PreferAutomatically assigned Marker from `['X' or 'O']`
+- View the Displyed Game Board Layout & wait for prompt to a preferred position
+- Enter the number visible on the GRID to place your MARKER.
+- Once a number is selected hit Enter & X / O will appear on the BOARD
+- Players Take turn entering the preferred location and try to make a WIN
+- Winning Combinations Include: Player should place 3 same markers in a horizontal, vertical, diagnol positions as displayed below
+
 
 ## Skills Revived & Learned:
 
@@ -21,32 +34,19 @@
 - Collaborative learning, being patient, helping each other succeed.
 - Self Monitoring & reliable project deliverables on due time, being focused, accountable.
 - Ability to work independently and ask for help after due self research when needed.
-
 ### Learning Goals:
 
 - Version Control, Git Flow
 - Application of RUBY Syntax & Programming elements.
 - User I/P & O/P via terminal / command line validation and control
-## Usage
-
-- main.rb - entry point file is a command line executable
-- Enter Player 1 'Name' & Preferred Marker from `['X' or 'O']`
-- Enter Player 2 'Name' & PreferAutomatically assigned Marker from `['X' or 'O']`
-- View the Displyed Game Board Layout & wait for prompt to a preferred position
-- Enter the number visible on the GRID to place your MARKER.
-- Once a number is selected hit Enter & X / O will appear on the BOARD
-- Players Take turn entering the preferred location and try to make a WIN
-- Winning Combinations Include: Player should place 3 same markers in a horizontal, vertical, diagnol positions as displayed below
 ## Authors
 
 :silhouette: **Shabbir**
-
 - GitHub: [@smy5152](https://github.com/smy5152)
 - Twitter: [@smy5152](https://twitter.com/smy5152)
 - LinkedIn: [Shabbir Yamani](https://www.linkedin.com/in/shabbirmyamani/)
 
 👤 **Ubong George**
-
 - GitHub: [@george-swift](https://github.com/george-swift)
 - Twitter: [@\_\_pragmaticdev](https://twitter.com/__pragmaticdev)
 
