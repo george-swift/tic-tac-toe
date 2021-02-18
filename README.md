@@ -18,10 +18,9 @@ Start of the game:
 
 ![screenshot](./screenshot-intro.png)
 
-From wins:
+A winner:
 
 ![screenshot](./screenshot-2.png)
-![screenshot](./screenshot-3.png)
 
 ## Skills Revived & Learned:
 
