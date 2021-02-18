@@ -1,5 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
+
 # Project Name: TicTacToe
+
 ## IMPLEMENTATION OF THE CLASSIC TIC TAC TOE Game in RUBY
 
 ```
@@ -13,7 +15,20 @@
        ###   ###  ####     ###   #####  ####     ###    ####   ####
 ```
 
-## Skills Revived & Learned:
+# Instructions
+
+- start cmd on windows / terminal on mac or linux
+- type ./main.rb & enter
+- The first player enters a name and selects either 'X' or 'O'
+- The second player is automatically assigned the other marker after they enter a name
+- Each player has to select an available position on the display grid for their marker.
+- Enter the number visible on the grid to place your marker.
+- Once a number is selected hit Enter & X / O will appear on the board
+- Players take turns selecting their preferred positions to make a winning move
+- Winning Combinations Include: Player should have 3 markers in ONE (1) row, column or diagonal.
+- The game ends in a tie if both players can not win.
+
+# Skills Revived & Learned:
 
 - Versioning & best coding practices, Git Flow.
 - RUBY Datastructures, features etc.
@@ -22,21 +37,12 @@
 - Self Monitoring & reliable project deliverables on due time, being focused, accountable.
 - Ability to work independently and ask for help after due self research when needed.
 
-### Learning Goals:
+## Learning Goals:
 
 - Version Control, Git Flow
 - Application of RUBY Syntax & Programming elements.
 - User I/P & O/P via terminal / command line validation and control
-## Usage
 
-- main.rb - entry point file is a command line executable
-- Enter Player 1 'Name' & Preferred Marker from `['X' or 'O']`
-- Enter Player 2 'Name' & PreferAutomatically assigned Marker from `['X' or 'O']`
-- View the Displyed Game Board Layout & wait for prompt to a preferred position
-- Enter the number visible on the GRID to place your MARKER.
-- Once a number is selected hit Enter & X / O will appear on the BOARD
-- Players Take turn entering the preferred location and try to make a WIN
-- Winning Combinations Include: Player should place 3 same markers in a horizontal, vertical, diagnol positions as displayed below
 ## Authors
 
 :silhouette: **Shabbir**
