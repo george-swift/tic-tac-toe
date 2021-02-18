@@ -28,7 +28,7 @@
 - Winning Combinations Include: Player should have 3 markers in ONE (1) row, column or diagonal.
 - The game ends in a tie if both players can not win.
 
-# Skills Revived & Learned:
+## Skills Revived & Learned:
 
 - Versioning & best coding practices, Git Flow.
 - RUBY Datastructures, features etc.
