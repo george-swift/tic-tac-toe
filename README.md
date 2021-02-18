@@ -12,7 +12,7 @@
         #     #  #   #      #       #  #   #      #    ##  ## #   #
         #     #  #          #    ####  #          #    #    # #####
         #     #  ##         #    #  #  ##         #    ##  ## #
-        ###   ###  ####     ###   #####  ####     ###    ####   ####
+       ###   ###  ####     ###   #####  ####     ###    ####   ####
 ```
 
 ## Skills Revived & Learned:
@@ -29,6 +29,7 @@
 - Version Control, Git Flow
 - Application of RUBY Syntax & Programming elements.
 - User I/P & O/P via terminal / command line validation and control
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -55,12 +56,6 @@ Or install it yourself as:
 - Once a number is selected hit Enter & X / O will appear on the BOARD
 - Players Take turn entering the preferred location and try to make a WIN
 - Winning Combinations Include: Player should place 3 same markers in a horizontal, vertical, diagnol positions as displayed below
-
-X | X | X     O | O | O     X | 2 | 3     1 | 2 | O
----+---+---  ---+---+---    ---+---+---  ---+---+---
-X | X | X     O | O | O     4 | X | 6     4 | O | 6
----+---+---  ---+---+---   ---+---+---  ---+---+---
-X | X | X     O | O | O     7 | 8 | X     O | 8 | 9
 
 ## Development
 

@@ -79,12 +79,12 @@ end
 def accept_moves(player_one, player_two)
   cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   moves_done = 1
-  game_banner
+  game_banner # BANNER - to show ASCII TIC TAC TOE
   board(cells)
 
   check = FindWinner.new
   game_in_play = true
-  
+
   while cells.any? { |n| n.is_a? Integer } && game_in_play
 
     # Checks if other player made a winning move
@@ -161,5 +161,6 @@ def position_available(marker_pos, player1_obj, player2_obj)
 end
 
 accept_moves(player1_obj, player2_obj)
+game_banner # BANNER - to show ASCII TIC TAC TOE
 
 # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
