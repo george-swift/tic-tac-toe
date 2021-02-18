@@ -1,7 +1,7 @@
 # !/usr/bin/env ruby
 
 # require_relative '../lib/tic_tac_toe'
-require_relative "../lib/tic_tac_toe/player"
+require_relative '../lib/tic_tac_toe/player'
 
 # Use getters to collect input from players
 puts "Let's play tic-tac-toe!"
@@ -24,7 +24,7 @@ end
 puts validate_marker(player_one, marker)
 
 # Create Player 1 object
-player_1_Obj = Player.new(player_one, marker, Array.new(9, 0))
+player1_obj = Player.new(player_one, marker, Array.new(9, 0))
 
 def change_marker(marker)
   other_marker = %w[X O].reject { |ch| ch == marker }
@@ -36,10 +36,9 @@ name = 'XYZ' # gets.chomp
 player_two = name
 
 # Create Player 2 object
-player_2_Obj = Player.new(player_two, change_marker(marker), Array.new(9, 0))
+player2_obj = Player.new(player_two, change_marker(marker), Array.new(9, 0))
 
-puts "Welcome #{player_2_Obj.name}, your marker is #{player_2_Obj.marker}"
-
+puts "Welcome #{player2_obj.name}, your marker is #{player2_obj.marker}"
 
 puts 'Remember: The player with a row, column or diagonal of the same marker wins'
 puts "Ready? Let's begin!"
@@ -47,7 +46,6 @@ puts "Ready? Let's begin!"
 # Define the board layout
 def board(moved_cells = %w[1 2 3 4 5 6 7 8 9])
   cells = moved_cells
-  puts 'Enter a number between 1 - 9 to select a position for your marker'
   puts <<-GRID
 
                 #{cells[0]} | #{cells[1]} | #{cells[2]}
@@ -61,41 +59,39 @@ end
 
 def accept_moves(player_one, player_two)
   cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  # count_unless_winning_combo = 1
-  move = 0
   moves_done = 1
   board(cells)
+
   while cells.any? { |n| n.is_a? Integer }
     puts 'Select a number from the GRID to make your move.'
-    
     puts "#{player_one.name}'s Turn : "
-    move_pos = gets.chomp.to_i-1
-    while (position_available(move_pos, player_one, player_two)) == false
-      puts "Oops! Invalid input. Try Again."
-      move_pos = gets.chomp.to_i-1
+    marker_pos = gets.chomp.to_i - 1
+    while (position_available(marker_pos, player_one, player_two)) == false
+      puts 'Oops! Invalid input. Try Again.'
+      marker_pos = gets.chomp.to_i - 1
     end
     # accept player 1 move
-    player_one.moves_arr[move_pos] = 1
+    player_one.moves_arr[marker_pos] = 1
     # p player_one.moves_arr
 
     # reference player_object.marker for DISPLAY GRID
-    cells[move_pos] = player_one.marker
+    cells[marker_pos] = player_one.marker
 
     board(cells)
 
     unless board_is_full(cells)
       puts 'Select a number from the GRID to make your move.'
-      # accept player 2 move
       puts "#{player_two.name}'s Turn : "
-      move_pos = gets.chomp.to_i-1
-      while (position_available(move_pos, player_one, player_two)) == false
-        puts "Oops! Invalid input. Try Again."
-        move_pos = gets.chomp.to_i-1
-      end 
+      marker_pos = gets.chomp.to_i - 1
+      while (position_available(marker_pos, player_one, player_two)) == false
+        puts 'Oops! Invalid input. Try Again.'
+        marker_pos = gets.chomp.to_i - 1
+      end
       # accept player 2 move
-      player_two.moves_arr[move_pos] = 1
+      player_two.moves_arr[marker_pos] = 1
+
       # reference player_object.marker
-      cells[move_pos] = player_two.marker
+      cells[marker_pos] = player_two.marker
 
       board(cells)
     end
@@ -117,13 +113,12 @@ end
 # checks moves array for Player 1 & 2
 # allow move position & returns true
 # checks against moves array of both players
-def position_available(move_pos, player_1_Obj, player_2_Obj)
-  p "player1:",player_1_Obj.moves_arr
-  p "player2:",player_2_Obj.moves_arr
-  if ((player_1_Obj.moves_arr[move_pos] == 0) && (player_2_Obj.moves_arr[move_pos] == 0)) == true
-          return true
-  end
-  return false
+def position_available(marker_pos, player1_obj, player2_obj)
+  # p 'player1:', player1_obj.moves_arr
+  # p 'player2:', player2_obj.moves_arr
+  return true if (player1_obj.moves_arr[marker_pos].zero? && player2_obj.moves_arr[marker_pos].zero?) == true
+
+  false
 end
 
-accept_moves(player_1_Obj, player_2_Obj)
+accept_moves(player1_obj, player2_obj)
