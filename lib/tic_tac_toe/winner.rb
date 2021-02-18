@@ -4,6 +4,5 @@ class FindWinner
   def game_over?(arr)
     win = arr.map.with_index { |num, idx| num.odd? ? idx : nil }.compact
     return COMBOS.any? {|combo| (combo & win).size > 2 }
-  end                             [0,1,2] & [0,1,2]
-
+  end
 end
