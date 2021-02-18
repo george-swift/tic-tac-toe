@@ -15,14 +15,18 @@ marker = gets.chomp.upcase
 # Validate input from the players
 def validate_marker(player_one, marker)
   game_markers = %w[X O]
-  unless game_markers.include? marker
-    puts "Oops! Wrong input. Select either 'X' or 'O' as your marker"
-    marker = gets.chomp.upcase
+  if game_markers.include? marker
+      puts "#{player_one} selects #{marker}"
+  else
+    return false  
   end
-  "#{player_one} selects #{marker}"
+  true
 end
 
-puts validate_marker(player_one, marker)
+while (validate_marker(player_one, marker)) == false
+  puts "Oops! Wrong input. Select either 'X' or 'O' as your marker"
+  marker = gets.chomp.upcase
+end
 
 # Create Player 1 object
 player1_obj = Player.new(player_one, marker, Array.new(9, 0))
