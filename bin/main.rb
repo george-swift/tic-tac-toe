@@ -8,10 +8,10 @@ require_relative '../lib/tic_tac_toe/winner'
 # Use getters to collect input from players
 puts "Let's play tic-tac-toe!"
 puts 'Enter your name player one'
-name = 'player 1' # gets.chomp
+name = gets.chomp
 player_one = name
 puts "Welcome #{player_one}, select either 'X' or 'O' as your marker"
-marker = 'X' # gets.chomp.upcase
+marker = gets.chomp.upcase
 
 # Validate input from the players
 def validate_marker(player_one, marker)
@@ -36,7 +36,7 @@ def change_marker(marker)
 end
 
 puts 'Enter your name player two'
-name = 'player 2' # gets.chomp
+name = gets.chomp
 player_two = name
 
 # Create Player 2 object
@@ -61,9 +61,7 @@ def board(moved_cells = %w[1 2 3 4 5 6 7 8 9])
   GRID
 end
 
-# rubocop:disable Lint/LiteralInInterpolation
-
-# Define the board layout
+# Add the banner
 def game_banner
   puts <<-GRID
 
@@ -77,8 +75,6 @@ def game_banner
          ###   ###  ####     ###   #####  ####     ###    ####   ####
   GRID
 end
-
-# rubocop:enable Lint/LiteralInInterpolation
 
 def accept_moves(player_one, player_two)
   cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -105,10 +101,10 @@ def accept_moves(player_one, player_two)
       puts 'Oops! Invalid input. Try Again.'
       marker_pos = gets.chomp.to_i - 1
     end
-    # accept player 1 move
+    # Holds player one's move
     player_one.moves_arr[marker_pos] = 1
 
-    # reference player_object.marker for DISPLAY GRID
+    # Sends player_object.marker to DISPLAY GRID
     cells[marker_pos] = player_one.marker
 
     board(cells)
@@ -128,10 +124,10 @@ def accept_moves(player_one, player_two)
         puts 'Oops! Invalid input. Try Again.'
         marker_pos = gets.chomp.to_i - 1
       end
-      # accept player 2 move
+      # Holds player two's move
       player_two.moves_arr[marker_pos] = 1
 
-      # reference player_object.marker
+      # Sends player marker to DISPLAY GRID
       cells[marker_pos] = player_two.marker
 
       board(cells)
