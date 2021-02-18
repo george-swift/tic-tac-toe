@@ -1,6 +1,7 @@
 # !/usr/bin/env ruby
 
-# require_relative '../lib/tic_tac_toe'
+# rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+
 require_relative '../lib/tic_tac_toe/player'
 require_relative '../lib/tic_tac_toe/winner'
 
@@ -15,11 +16,9 @@ marker = gets.chomp.upcase
 # Validate input from the players
 def validate_marker(player_one, marker)
   game_markers = %w[X O]
-  if game_markers.include? marker
-      puts "#{player_one} selects #{marker}"
-  else
-    return false  
-  end
+  return false unless game_markers.include? marker
+
+  puts "#{player_one} selects #{marker}"
   true
 end
 
@@ -137,7 +136,7 @@ end
 # checks against moves array of both players
 def position_available(marker_pos, player1_obj, player2_obj)
   # test - marker_pos - index has a limit of 1 to 9
-  return false if ((marker_pos < 0 ) || (marker_pos > 8 ))
+  return false if marker_pos.negative? || (marker_pos > 8)
 
   # test - new move - does not overlap any previous moves done.
   return true if (player1_obj.moves_arr[marker_pos].zero? && player2_obj.moves_arr[marker_pos].zero?) == true
@@ -146,3 +145,5 @@ def position_available(marker_pos, player1_obj, player2_obj)
 end
 
 accept_moves(player1_obj, player2_obj)
+
+# rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
