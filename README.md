@@ -1,5 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
+
 # Project Name: TicTacToe
+
 ## IMPLEMENTATION OF THE CLASSIC TIC TAC TOE Game in RUBY
 
 ```
@@ -26,6 +28,19 @@
 - Winning Combinations Include: Player should place 3 same markers in a horizontal, vertical, diagnol positions as displayed below
 
 
+# Instructions
+
+- start cmd on windows / terminal on mac or linux
+- type ./main.rb & enter
+- The first player enters a name and selects either 'X' or 'O'
+- The second player is automatically assigned the other marker after they enter a name
+- Each player has to select an available position on the display grid for their marker.
+- Enter the number visible on the grid to place your marker.
+- Once a number is selected hit Enter & X / O will appear on the board
+- Players take turns selecting their preferred positions to make a winning move
+- Winning Combinations Include: Player should have 3 markers in ONE (1) row, column or diagonal.
+- The game ends in a tie if both players can not win.
+
 ## Skills Revived & Learned:
 
 - Versioning & best coding practices, Git Flow.
@@ -34,7 +49,8 @@
 - Collaborative learning, being patient, helping each other succeed.
 - Self Monitoring & reliable project deliverables on due time, being focused, accountable.
 - Ability to work independently and ask for help after due self research when needed.
-### Learning Goals:
+
+## Learning Goals:
 
 - Version Control, Git Flow
 - Application of RUBY Syntax & Programming elements.
