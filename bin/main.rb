@@ -1,29 +1,34 @@
 # !/usr/bin/env ruby
 
-# require_relative '../lib/tic_tac_toe'
-# require_relative "../lib/player"
+# rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+
+require_relative '../lib/tic_tac_toe/player'
+require_relative '../lib/tic_tac_toe/winner'
 
 # Use getters to collect input from players
 puts "Let's play tic-tac-toe!"
 puts 'Enter your name player one'
-name = 'P1' # gets.chomp
+name = gets.chomp
 player_one = name
 puts "Welcome #{player_one}, select either 'X' or 'O' as your marker"
-marker = 'X' # gets.chomp.upcase
+marker = gets.chomp.upcase
 
 # Validate input from the players
 def validate_marker(player_one, marker)
   game_markers = %w[X O]
-  unless game_markers.include? marker
-    puts "Oops! Wrong input. Select either 'X' or 'O' as your marker"
-    marker = gets.chomp.upcase
-  end
-  "#{player_one} selects #{marker}"
+  return false unless game_markers.include? marker
+
+  puts "#{player_one} selects #{marker}"
+  true
 end
 
-puts validate_marker(player_one, marker)
+while validate_marker(player_one, marker) == false
+  puts "Oops! Wrong input. Select either 'X' or 'O' as your marker"
+  marker = gets.chomp.upcase
+end
 
 # Create Player 1 object
+player1_obj = Player.new(player_one, marker, Array.new(9, 0))
 
 def change_marker(marker)
   other_marker = %w[X O].reject { |ch| ch == marker }
@@ -31,11 +36,13 @@ def change_marker(marker)
 end
 
 puts 'Enter your name player two'
-name = 'P2' # gets.chomp
+name = gets.chomp
 player_two = name
-puts "Welcome #{player_two}, your marker is #{change_marker(marker)}"
 
 # Create Player 2 object
+player2_obj = Player.new(player_two, change_marker(marker), Array.new(9, 0))
+
+puts "Welcome #{player2_obj.name}, your marker is #{player2_obj.marker}"
 
 puts 'Remember: The player with a row, column or diagonal of the same marker wins'
 puts "Ready? Let's begin!"
@@ -43,7 +50,6 @@ puts "Ready? Let's begin!"
 # Define the board layout
 def board(moved_cells = %w[1 2 3 4 5 6 7 8 9])
   cells = moved_cells
-  puts 'Enter a number between 1 - 9 to select a position for your marker'
   puts <<-GRID
 
                 #{cells[0]} | #{cells[1]} | #{cells[2]}
@@ -57,35 +63,56 @@ end
 
 def accept_moves(player_one, player_two)
   cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  # count_unless_winning_combo = 1
-  # move = 0
   moves_done = 1
   board(cells)
-  while cells.any? { |n| n.is_a? Integer }
+
+  check = FindWinner.new
+  game_in_play = true
+
+  while cells.any? { |n| n.is_a? Integer } && game_in_play
+
+    # Checks if other player made a winning move
+    if check.game_over? player_two.moves_arr
+      game_in_play = false
+      puts "Brilliant! #{player_two.name} wins!!"
+      break
+    end
+
     puts 'Select a number from the GRID to make your move.'
+    puts "#{player_one.name}'s Turn : "
+    marker_pos = gets.chomp.to_i - 1
+    while position_available(marker_pos, player_one, player_two) == false
+      puts 'Oops! Invalid input. Try Again.'
+      marker_pos = gets.chomp.to_i - 1
+    end
     # accept player 1 move
+    player_one.moves_arr[marker_pos] = 1
 
-    # if position_available?
-    puts "#{player_one}'s Turn : "
-    move = gets.chomp.to_i
-    # end
-
-    # reference player_object.marker
-    cells[move - 1] = 'X'
+    # reference player_object.marker for DISPLAY GRID
+    cells[marker_pos] = player_one.marker
 
     board(cells)
 
+    # Checks if previous player made a winning move
+    if check.game_over? player_one.moves_arr
+      game_in_play = false
+      puts "Brilliant! #{player_one.name} wins!!"
+      break
+    end
+
     unless board_is_full(cells)
       puts 'Select a number from the GRID to make your move.'
+      puts "#{player_two.name}'s Turn : "
+      marker_pos = gets.chomp.to_i - 1
+      while position_available(marker_pos, player_one, player_two) == false
+        puts 'Oops! Invalid input. Try Again.'
+        marker_pos = gets.chomp.to_i - 1
+      end
       # accept player 2 move
-
-      # if position_available?
-      puts "#{player_two}'s Turn : "
-      move = gets.chomp.to_i
-      # end
+      player_two.moves_arr[marker_pos] = 1
 
       # reference player_object.marker
-      cells[move - 1] = 'O'
+      cells[marker_pos] = player_two.marker
 
       board(cells)
     end
@@ -95,7 +122,7 @@ def accept_moves(player_one, player_two)
     moves_done += 1
   end
 
-  puts "#{player_one} Wins!!! Or Draw"
+  puts "It's a Tie. Play again?" unless check.game_over? player_one.moves_arr or check.game_over? player_two.moves_arr
 end
 
 def board_is_full(cells)
@@ -104,4 +131,19 @@ def board_is_full(cells)
   false
 end
 
-accept_moves(player_one, player_two)
+# checks moves array for Player 1 & 2
+# allow move position & returns true
+# checks against moves array of both players
+def position_available(marker_pos, player1_obj, player2_obj)
+  # test - marker_pos - index has a limit of 1 to 9
+  return false if marker_pos.negative? || (marker_pos > 8)
+
+  # test - new move - does not overlap any previous moves done.
+  return true if (player1_obj.moves_arr[marker_pos].zero? && player2_obj.moves_arr[marker_pos].zero?) == true
+
+  false
+end
+
+accept_moves(player1_obj, player2_obj)
+
+# rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
