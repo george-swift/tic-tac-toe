@@ -7,10 +7,10 @@ require_relative '../lib/tic_tac_toe/winner'
 # Use getters to collect input from players
 puts "Let's play tic-tac-toe!"
 puts 'Enter your name player one'
-name = 'ABC' # gets.chomp
+name = gets.chomp
 player_one = name
 puts "Welcome #{player_one}, select either 'X' or 'O' as your marker"
-marker = 'X' # gets.chomp.upcase
+marker = gets.chomp.upcase
 
 # Validate input from the players
 def validate_marker(player_one, marker)
@@ -33,7 +33,7 @@ def change_marker(marker)
 end
 
 puts 'Enter your name player two'
-name = 'XYZ' # gets.chomp
+name = gets.chomp
 player_two = name
 
 # Create Player 2 object
@@ -132,8 +132,10 @@ end
 # allow move position & returns true
 # checks against moves array of both players
 def position_available(marker_pos, player1_obj, player2_obj)
-  # p 'player1:', player1_obj.moves_arr
-  # p 'player2:', player2_obj.moves_arr
+  # test - marker_pos - index has a limit of 1 to 9
+  return false if ((marker_pos < 0 ) || (marker_pos > 8 ))
+
+  # test - new move - does not overlap any previous moves done.
   return true if (player1_obj.moves_arr[marker_pos].zero? && player2_obj.moves_arr[marker_pos].zero?) == true
 
   false
