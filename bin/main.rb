@@ -2,6 +2,7 @@
 
 # require_relative '../lib/tic_tac_toe'
 require_relative '../lib/tic_tac_toe/player'
+require_relative '../lib/tic_tac_toe/winner' 
 
 # Use getters to collect input from players
 puts "Let's play tic-tac-toe!"
@@ -61,8 +62,19 @@ def accept_moves(player_one, player_two)
   cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   moves_done = 1
   board(cells)
+  
+  check = FindWinner.new
+  game_in_play = true
 
-  while cells.any? { |n| n.is_a? Integer }
+  while(cells.any? { |n| n.is_a? Integer } && game_in_play) 
+
+    # Checks if other player made a winning move
+    if check.game_over?player_two.moves_arr 
+      game_in_play = false
+      puts "Brilliant! #{player_two.name} wins!!"
+      break
+    end 
+
     puts 'Select a number from the GRID to make your move.'
     puts "#{player_one.name}'s Turn : "
     marker_pos = gets.chomp.to_i - 1
@@ -72,12 +84,18 @@ def accept_moves(player_one, player_two)
     end
     # accept player 1 move
     player_one.moves_arr[marker_pos] = 1
-    # p player_one.moves_arr
-
+    
     # reference player_object.marker for DISPLAY GRID
     cells[marker_pos] = player_one.marker
 
     board(cells)
+
+    # Checks if previous player made a winning move
+    if check.game_over?player_one.moves_arr 
+      game_in_play = false
+      puts "Brilliant! #{player_one.name} wins!!"
+      break
+    end 
 
     unless board_is_full(cells)
       puts 'Select a number from the GRID to make your move.'
@@ -101,7 +119,7 @@ def accept_moves(player_one, player_two)
     moves_done += 1
   end
 
-  puts "#{player_one} Wins!!! Or Draw"
+  puts "It's a Tie. Play again?" unless check.game_over?player_one.moves_arr or check.game_over?player_two.moves_arr
 end
 
 def board_is_full(cells)
