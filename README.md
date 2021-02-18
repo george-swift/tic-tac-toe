@@ -37,6 +37,23 @@
 - Once a number is selected hit Enter & X / O will appear on the BOARD
 - Players Take turn entering the preferred location and try to make a WIN
 - Winning Combinations Include: Player should place 3 same markers in a horizontal, vertical, diagnol positions as displayed below
+## Authors
+
+:silhouette: **Shabbir**
+
+- GitHub: [@smy5152](https://github.com/smy5152)
+- Twitter: [@smy5152](https://twitter.com/smy5152)
+- LinkedIn: [Shabbir Yamani](https://www.linkedin.com/in/shabbirmyamani/)
+
+👤 **Ubong George**
+
+- GitHub: [@george-swift](https://github.com/george-swift)
+- Twitter: [@\_\_pragmaticdev](https://twitter.com/__pragmaticdev)
+
+## Show your support
+
+Give a :star:️ if you like this project!
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/smy5152/tic-tact-toe. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/smy5152/tic-tact-toe/blob/development/CODE_OF_CONDUCT.md).
