@@ -22,7 +22,7 @@ def validate_marker(player_one, marker)
   true
 end
 
-while (validate_marker(player_one, marker)) == false
+while validate_marker(player_one, marker) == false
   puts "Oops! Wrong input. Select either 'X' or 'O' as your marker"
   marker = gets.chomp.upcase
 end
@@ -81,7 +81,7 @@ def accept_moves(player_one, player_two)
     puts 'Select a number from the GRID to make your move.'
     puts "#{player_one.name}'s Turn : "
     marker_pos = gets.chomp.to_i - 1
-    while (position_available(marker_pos, player_one, player_two)) == false
+    while position_available(marker_pos, player_one, player_two) == false
       puts 'Oops! Invalid input. Try Again.'
       marker_pos = gets.chomp.to_i - 1
     end
@@ -104,7 +104,7 @@ def accept_moves(player_one, player_two)
       puts 'Select a number from the GRID to make your move.'
       puts "#{player_two.name}'s Turn : "
       marker_pos = gets.chomp.to_i - 1
-      while (position_available(marker_pos, player_one, player_two)) == false
+      while position_available(marker_pos, player_one, player_two) == false
         puts 'Oops! Invalid input. Try Again.'
         marker_pos = gets.chomp.to_i - 1
       end
