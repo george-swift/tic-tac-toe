@@ -1,4 +1,4 @@
-# !/usr/bin/env ruby
+#!/usr/bin/env ruby
 
 # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
@@ -61,9 +61,27 @@ def board(moved_cells = %w[1 2 3 4 5 6 7 8 9])
   GRID
 end
 
+# rubocop:disable Lint/LiteralInInterpolation
+# Add the banner
+def game_banner
+  puts <<-GRID
+
+        #######             #######               ########{'              '}
+          #                   #                     ##{'                 '}
+          #                   #                     ##{'                 '}
+          #    ##   ####      #    ####   ####      #     ####   ####{'  '}
+          #     #  #   #      #       #  #   #      #    ##  ## #   ##{' '}
+          #     #  #          #    ####  #          #    #    # ######{' '}
+          #     #  ##         #    #  #  ##         #    ##  ## ##{'     '}
+         ###   ###  ####     ###   #####  ####     ###    ####   ####
+  GRID
+end
+# rubocop:enable Lint/LiteralInInterpolation
+
 def accept_moves(player_one, player_two)
   cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   moves_done = 1
+  game_banner # BANNER - to show ASCII TIC TAC TOE
   board(cells)
 
   check = FindWinner.new
@@ -85,10 +103,10 @@ def accept_moves(player_one, player_two)
       puts 'Oops! Invalid input. Try Again.'
       marker_pos = gets.chomp.to_i - 1
     end
-    # accept player 1 move
+    # Holds player one's move
     player_one.moves_arr[marker_pos] = 1
 
-    # reference player_object.marker for DISPLAY GRID
+    # Sends player_object.marker to DISPLAY GRID
     cells[marker_pos] = player_one.marker
 
     board(cells)
@@ -108,10 +126,10 @@ def accept_moves(player_one, player_two)
         puts 'Oops! Invalid input. Try Again.'
         marker_pos = gets.chomp.to_i - 1
       end
-      # accept player 2 move
+      # Holds player two's move
       player_two.moves_arr[marker_pos] = 1
 
-      # reference player_object.marker
+      # Sends player marker to DISPLAY GRID
       cells[marker_pos] = player_two.marker
 
       board(cells)
@@ -145,5 +163,6 @@ def position_available(marker_pos, player1_obj, player2_obj)
 end
 
 accept_moves(player1_obj, player2_obj)
+game_banner # BANNER - to show ASCII TIC TAC TOE
 
 # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity

@@ -1,38 +1,71 @@
-# TicTacToe
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tic_tac_toe`. To experiment with that code, run `bin/console` for an interactive prompt.
+# Project Name: TicTacToe
 
-TODO: Delete this and the text above, and describe your gem
+## IMPLEMENTATION OF THE CLASSIC TIC TAC TOE Game in RUBY
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'tic_tac_toe'
 ```
+    #######             #######               #######
+        #                   #                     #
+        #                   #                     #
+        #    ##   ####      #    ####   ####      #     ####   ###
+        #     #  #   #      #       #  #   #      #    ##  ## #   #
+        #     #  #          #    ####  #          #    #    # #####
+        #     #  ##         #    #  #  ##         #    ##  ## #
+       ###   ###  ####     ###   #####  ####     ###    ####   ####
+```
+## DESCRIPTION & HOW TO START PLAYING
+### Start cmd on windows / terminal on mac or linux
+- Type below commands to launch the game
+    - Start a new Terminal [CMD from Run/Search on Windows]
+    - Go to the game directory: cd [tic-tac-toe]
+    - Type: $user-1@[...] cd [bin] &  Enter [.\main.rb]
+    - Hit Enter/Return & continue...
+- main.rb - the entry point file is a command line executable
+# GAME PLAY - Instructions
+- start cmd on windows / terminal on mac or linux
+- type ./main.rb & enter
+- The first player enters a name and selects either 'X' or 'O'
+- The second player is automatically assigned the other marker after they enter a name
+- Each player has to select an available position on the display grid for their marker.
+- Enter the number visible on the grid to place your marker.
+- Once a number is selected hit Enter & X / O will appear on the board
+- Players take turns selecting their preferred positions to make a winning move
+- Winning Combinations Include: Player should have 3 markers in ONE (1) row, column or diagonal.
+- The game ends in a tie if both players can not win.
 
-And then execute:
+## Skills Revived & Learned:
 
-    $ bundle install
+- Versioning & best coding practices, Git Flow.
+- RUBY Datastructures, features etc.
+- Linter - install & fix errors
+- Collaborative learning, being patient, helping each other succeed.
+- Self Monitoring & reliable project deliverables on due time, being focused, accountable.
+- Ability to work independently and ask for help after due self research when needed.
 
-Or install it yourself as:
+## Learning Goals:
 
-    $ gem install tic_tac_toe
+- Version Control, Git Flow
+- Application of RUBY Syntax & Programming elements.
+- User I/P & O/P via terminal / command line validation and control
+## Authors
 
-## Usage
+:silhouette: **Shabbir**
+- GitHub: [@smy5152](https://github.com/smy5152)
+- Twitter: [@smy5152](https://twitter.com/smy5152)
+- LinkedIn: [Shabbir Yamani](https://www.linkedin.com/in/shabbirmyamani/)
 
-TODO: Write usage instructions here
+👤 **Ubong George**
+- GitHub: [@george-swift](https://github.com/george-swift)
+- Twitter: [@\_\_pragmaticdev](https://twitter.com/__pragmaticdev)
 
-## Development
+## Show your support
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Give a :star:️ if you like this project!
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/tic_tac_toe. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/tic_tac_toe/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/smy5152/tic-tact-toe. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/smy5152/tic-tact-toe/blob/development/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -40,4 +73,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the TicTacToe project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/tic_tac_toe/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the TicTacToe project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/smy5152/tic-tact-toe/blob/development/CODE_OF_CONDUCT.md).

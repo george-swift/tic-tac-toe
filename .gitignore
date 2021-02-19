@@ -6,3 +6,8 @@
 /pkg/
 /spec/reports/
 /tmp/
+
+tic_tac_toe.gemspec
+Rakefile
+bin/console
+bin/setup
