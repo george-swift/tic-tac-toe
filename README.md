@@ -15,21 +15,14 @@
        ###   ###  ####     ###   #####  ####     ###    ####   ####
 ```
 ## DESCRIPTION & HOW TO START PLAYING
-
-- Start cmd on windows / terminal on mac or linux
-- Type `./main.rb` & hit enter/return
-- main.rb - entry point file is a command line executable
-- Enter Player 1 'Name' & Preferred Marker from `['X' or 'O']`
-- Enter Player 2 'Name' & PreferAutomatically assigned Marker from `['X' or 'O']`
-- View the Displyed Game Board Layout & wait for prompt to a preferred position
-- Enter the number visible on the GRID to place your MARKER.
-- Once a number is selected hit Enter & X / O will appear on the BOARD
-- Players Take turn entering the preferred location and try to make a WIN
-- Winning Combinations Include: Player should place 3 same markers in a horizontal, vertical, diagnol positions as displayed below
-
-
-# Instructions
-
+### Start cmd on windows / terminal on mac or linux
+- Type below commands to launch the game
+    - Start a new Terminal [CMD from Run/Search on Windows]
+    - Go to the game directory: cd [tic-tac-toe]
+    - Type: $user-1@[...] cd [bin] &  Enter [.\main.rb]
+    - Hit Enter/Return & continue...
+- main.rb - the entry point file is a command line executable
+# GAME PLAY - Instructions
 - start cmd on windows / terminal on mac or linux
 - type ./main.rb & enter
 - The first player enters a name and selects either 'X' or 'O'
