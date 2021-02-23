@@ -1,7 +1,6 @@
-require_relative '../lib/tic_tac_toe/winner.rb'
+require_relative '../lib/tic_tac_toe/winner'
 
 describe FindWinner do
-  marker = %w(X O)
   let(:arr_winner) { [1, 1, 1, 0, 0, 0, 0, 0, 0] }
   let(:arr_loser) { [1, 0, 1, 0, 0, 0, 0, 0, 0] }
 
@@ -15,5 +14,4 @@ describe FindWinner do
       end
     end
   end
-
 end

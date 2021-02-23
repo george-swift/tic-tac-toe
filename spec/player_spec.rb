@@ -1,7 +1,7 @@
-require_relative '../lib/tic_tac_toe/player.rb'
+require_relative '../lib/tic_tac_toe/player'
 
 describe Player do
-  marker = %w(X O)
+  marker = %w[X O]
   let(:block) { proc { |n| n.odd? } }
   let(:player) { Player.new('player', marker.sample, Array.new(9, 0)) }
 
@@ -36,5 +36,3 @@ describe Player do
     end
   end
 end
-
-
