@@ -48,6 +48,9 @@
 - Version Control, Git Flow
 - Application of RUBY Syntax & Programming elements.
 - User I/P & O/P via terminal / command line validation and control
+
+## Testing:
+- To test this code download RSpec, access the repository using the terminal, write rspec and execute
 ## Authors
 
 :silhouette: **Shabbir**
