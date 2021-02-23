@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# rubocop:disable Lint/LiteralInInterpolation, Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+# rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
 require_relative '../lib/tic_tac_toe/player'
 require_relative '../lib/tic_tac_toe/winner'
@@ -163,4 +163,4 @@ end
 accept_moves(player1_obj, player2_obj)
 game_banner # BANNER - to show ASCII TIC TAC TOE
 
-# rubocop:enable Lint/LiteralInInterpolation, Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+# rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
